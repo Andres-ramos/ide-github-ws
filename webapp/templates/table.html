@@ -1,0 +1,21 @@
+<title>Hello from Flask</title>
+<table> 
+  <thead>
+      <tr>
+          <th>Date</th>
+          <th>Temperature</th>
+      </tr>
+  </thead>
+    {% for json in table_data %}
+      <tr>
+
+        <td>
+          {{json.date}}
+        </td>  
+        <td>
+          {{json.temperature}}
+        </td>
+      </tr>
+    {%endfor %}
+
+</table>
