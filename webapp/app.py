@@ -5,24 +5,17 @@ from flask_sqlalchemy import SQLAlchemy
 # from db import db
 import os 
 from .db import get_db
+from .quantum_ml import QuantumMLModel  
 
-# db = SQLAlchemy()
 
-
-def create_app():
+def create_app() -> None:
     app = Flask(__name__)
-
-    # initialize Database configuration
-    # app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///jeje.db'
-
-
-    # db.init_app(app)
 
     app.config.from_mapping(
         SECRET_KEY='dev',
         DATABASE=os.path.join(app.instance_path, 'temperature.sqlite'),
     )
-    # ensure the instance folder exists
+
     try:
         os.makedirs(app.instance_path)
     except OSError:
@@ -32,16 +25,17 @@ def create_app():
     db.init_app(app)
 
     @app.route("/")
-    def hello_world():
+    def render_temperatures():
         temperature = get_db().execute(
             'SELECT * FROM temperature'
         ).fetchall()
-        # print(temperature[0][1])
         temperatures_json = [{"temperature": entry[-2], "date": entry[-1].strftime("%m/%d/%Y/%H")} for entry in temperature]
-        # print(temperatures_json)
         table_data= temperatures_json
-        return render_template('table.html', table_data=table_data)
+        
+        temperature_list = [entry[-2] for entry in temperature]
+        model = QuantumMLModel()
+        qllm_result = model.predict(temperature_list)[0]
+        formatted_qllm_result = "{:.2f}".format(qllm_result)
+        return render_template('table.html', table_data=table_data, qllm_result=formatted_qllm_result)
     
-
-
     return app
