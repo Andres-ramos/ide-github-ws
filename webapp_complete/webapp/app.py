@@ -29,7 +29,7 @@ def create_app() -> None:
         temperature = get_db().execute(
             'SELECT * FROM temperature'
         ).fetchall()
-        temperatures_json = [{"temperature": entry[-2], "date": entry[-1].strftime("%m/%d/%Y/%H")} for entry in temperature]
+        temperatures_json = [{"temp": entry[-2], "date": entry[-1].strftime("%m/%d/%Y/%H")} for entry in temperature]
         table_data= temperatures_json
         
         temperature_list = [entry[-2] for entry in temperature]
@@ -39,3 +39,4 @@ def create_app() -> None:
         return render_template('table.html', table_data=table_data, qllm_result=formatted_qllm_result)
     
     return app
+
