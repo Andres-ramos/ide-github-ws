@@ -10,7 +10,7 @@ from .quantum_ml import QuantumMLModel
 
 def create_app() -> None:
     app = Flask(__name__)
-
+    print("jeje salu2 luke")
     app.config.from_mapping(
         SECRET_KEY='dev',
         DATABASE=os.path.join(app.instance_path, 'temperature.sqlite'),
