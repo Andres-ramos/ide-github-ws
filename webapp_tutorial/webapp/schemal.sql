@@ -1,4 +1,5 @@
 -- TODO: Uncomment schema
+
 -- DROP TABLE IF EXISTS temperature;
 
 -- CREATE TABLE temperature (

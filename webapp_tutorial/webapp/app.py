@@ -2,15 +2,16 @@ from flask import Flask, render_template
 import click
 from flask.cli import with_appcontext
 from flask_sqlalchemy import SQLAlchemy
-# from db import db
 import os 
-from .db import get_db
-from .quantum_ml import QuantumMLModel  
+#TODO: Uncomment these dependencies
+# from .db import get_db
+# from .quantum_ml import QuantumMLModel  
 
 
 def create_app() -> None:
     app = Flask(__name__)
 
+    #TODO: Uncomment this
     # app.config.from_mapping(
     #     SECRET_KEY='dev',
     #     DATABASE=os.path.join(app.instance_path, 'temperature.sqlite'),
@@ -38,4 +39,8 @@ def create_app() -> None:
     #     formatted_qllm_result = "{:.2f}".format(qllm_result)
     #     return render_template('table.html', table_data=table_data, qllm_result=formatted_qllm_result)
     
+    #TODO: Comment this
+    @app.route("/")
+    def hello_world():
+        return "hellow world"
     return app
