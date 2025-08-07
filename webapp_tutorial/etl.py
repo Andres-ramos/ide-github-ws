@@ -7,11 +7,11 @@ app = create_app()
 def run_etl():
     #Extract 
     # TODO: Scrapping Team uncomment these lines
-    # lat = 18.403958942814228
-    # lon = -66.04510186605337
-    # c = Scrapper()
-    # data = c.fetch_data(lat, lon)
-    # print(data)
+    lat = 18.403958942814228
+    lon = -66.04510186605337
+    c = Scrapper()
+    data = c.fetch_data(lat, lon)
+    print(data)
 
     # TODO: Backend Team uncomment these lines
     # #Transform
