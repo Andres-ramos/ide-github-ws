@@ -12,18 +12,18 @@ def create_app() -> None:
     app = Flask(__name__)
 
     #TODO: Backend Team: Uncomment this
-    # app.config.from_mapping(
-    #     SECRET_KEY='dev',
-    #     DATABASE=os.path.join(app.instance_path, 'temperature.sqlite'),
-    # )
+    app.config.from_mapping(
+        SECRET_KEY='dev',
+        DATABASE=os.path.join(app.instance_path, 'temperature.sqlite'),
+    )
 
-    # try:
-    #     os.makedirs(app.instance_path)
-    # except OSError:
-    #     pass
+    try:
+        os.makedirs(app.instance_path)
+    except OSError:
+        pass
 
-    # from . import db
-    # db.init_app(app)
+    from . import db
+    db.init_app(app)
 
     # Frontend Team: Uncomment this
     # @app.route("/")
