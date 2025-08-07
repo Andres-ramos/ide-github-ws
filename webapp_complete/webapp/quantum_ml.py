@@ -12,4 +12,3 @@ class QuantumMLModel:
         self.model.fit(X, Y)
         entry = np.array([25]).reshape(1, -1)
         return self.model.predict(entry)[0]
-        # return 

@@ -1,6 +1,6 @@
 from webapp.scrapper import Scrapper
 from webapp.app import create_app
-from webapp.db import get_db
+# from webapp.db import get_db #TODO: Backend team uncomment this line!
 
 app = create_app()
 
