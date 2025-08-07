@@ -11,7 +11,7 @@ import os
 def create_app() -> None:
     app = Flask(__name__)
 
-    #TODO: Uncomment this
+    #TODO: Backend Team: Uncomment this
     # app.config.from_mapping(
     #     SECRET_KEY='dev',
     #     DATABASE=os.path.join(app.instance_path, 'temperature.sqlite'),
@@ -25,6 +25,7 @@ def create_app() -> None:
     # from . import db
     # db.init_app(app)
 
+    # Frontend Team: Uncomment this
     # @app.route("/")
     # def render_temperatures():
     #     temperature = get_db().execute(
@@ -39,8 +40,8 @@ def create_app() -> None:
     #     formatted_qllm_result = "{:.2f}".format(qllm_result)
     #     return render_template('table.html', table_data=table_data, qllm_result=formatted_qllm_result)
     
-    #TODO: Comment this
+    #TODO: Frontend Team: Comment this
     @app.route("/")
     def hello_world():
-        return "hellow world"
+        return "hello world"
     return app

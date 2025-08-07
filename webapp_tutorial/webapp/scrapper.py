@@ -10,6 +10,35 @@ class Scrapper:
 
     def fetch_data(self, latitude, longitude) -> Dict[str, List[str]]:
         """
-
+        Implement method that fetches data
         """
-        return 
+        # TODO: Scrapping team, uncomment this code!
+        # params = {
+        #     "lat": latitude,
+        #     "lon": longitude,
+        #     "unit": 0,
+        #     "lg": "english",
+        #     "FcstType": "digital"
+        # }
+        # response = requests.get(self.BASE_URI, params=params)
+
+        # html_string = response.text
+        # soup = BeautifulSoup(html_string,features='html.parser')
+
+        # #temperature
+        # red_entries_list = soup.find_all("font", attrs={"color": "#FF0000"})
+        # temperatures = [entry.text for entry in red_entries_list[1:25]]
+
+        # #date
+        # dates = soup.find_all("table")
+        # table = dates[4]
+        # hours = []
+        # for hour in table.find_all("td", attrs={"class": "date"})[25:49]:
+        #     now = datetime.datetime.now()
+        #     year = now.year
+        #     day = now.day
+        #     month = now.month
+        #     dt_object = datetime.datetime(year, month, day, int(hour.text))
+        #     hours.append(dt_object)
+
+        # return {"time": hours, "temperature": temperatures}

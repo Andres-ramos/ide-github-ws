@@ -6,7 +6,7 @@ class QuantumMLModel:
 
     model = LinearRegression()
     def predict(self, temperature_list):
-        # TODO: Uncomment this
+        # TODO: ML Team: Uncomment this
         # X = np.array([[i] for i in range(len(temperature_list))]).reshape(-1, 1)
         # Y = np.array([[temp] for temp in temperature_list]).reshape(-1, 1)
         # self.model.fit(X, Y)

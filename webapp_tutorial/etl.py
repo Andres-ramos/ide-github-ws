@@ -1,18 +1,19 @@
 from webapp.scrapper import Scrapper
 from webapp.app import create_app
 from webapp.db import get_db
-# from webapp.model import Temperature
-# from app import db
 
 app = create_app()
 
 def run_etl():
     #Extract 
+    # TODO: Scrapping Team uncomment these lines
     # lat = 18.403958942814228
     # lon = -66.04510186605337
     # c = Scrapper()
     # data = c.fetch_data(lat, lon)
-    
+    # print(data)
+
+    # TODO: Backend Team uncomment these lines
     # #Transform
     # temps = data["temperature"]
     # dates = data["time"]
