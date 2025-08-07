@@ -2,7 +2,6 @@ from flask import Flask, render_template
 import click
 from flask.cli import with_appcontext
 from flask_sqlalchemy import SQLAlchemy
-# from db import db
 import os 
 from .db import get_db
 from .quantum_ml import QuantumMLModel  
@@ -10,7 +9,6 @@ from .quantum_ml import QuantumMLModel
 
 def create_app() -> None:
     app = Flask(__name__)
-    print("jeje salu2 luke")
     app.config.from_mapping(
         SECRET_KEY='dev',
         DATABASE=os.path.join(app.instance_path, 'temperature.sqlite'),
@@ -31,7 +29,6 @@ def create_app() -> None:
         ).fetchall()
         temperatures_json = [{"temp": entry[-2], "date": entry[-1].strftime("%m/%d/%Y/%H")} for entry in temperature]
         table_data= temperatures_json
-        
         temperature_list = [entry[-2] for entry in temperature]
         model = QuantumMLModel()
         qllm_result = model.predict(temperature_list)[0]
