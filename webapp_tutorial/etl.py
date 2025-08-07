@@ -1,17 +1,16 @@
 from webapp.scrapper import Scrapper
 from webapp.app import create_app
-from webapp.db import get_db
+# from webapp.db import get_db #TODO: Backend team uncomment this!
 
 app = create_app()
 
 def run_etl():
     #Extract 
     # TODO: Scrapping Team uncomment these lines
-    # lat = 18.403958942814228
-    # lon = -66.04510186605337
-    # c = Scrapper()
-    # data = c.fetch_data(lat, lon)
-    # print(data)
+    lat = 18.403958942814228
+    lon = -66.04510186605337
+    c = Scrapper()
+    data = c.fetch_data(lat, lon)
 
     # TODO: Backend Team uncomment these lines
     # #Transform
