@@ -11,7 +11,6 @@ def run_etl():
     lon = -66.04510186605337
     c = Scrapper()
     data = c.fetch_data(lat, lon)
-    print(data)
 
     # TODO: Backend Team uncomment these lines
     # #Transform
