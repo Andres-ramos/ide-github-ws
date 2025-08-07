@@ -35,10 +35,10 @@ def create_app() -> None:
         table_data= temperatures_json
         
         temperature_list = [entry[-2] for entry in temperature]
-        # model = QuantumMLModel()
-        # qllm_result = model.predict(temperature_list)[0]
-        # formatted_qllm_result = "{:.2f}".format(qllm_result)
-        formatted_qllm_result = 1
+        model = QuantumMLModel()
+        qllm_result = model.predict(temperature_list)[0]
+        formatted_qllm_result = "{:.2f}".format(qllm_result)
+        # formatted_qllm_result = 1
         return render_template('table.html', table_data=table_data, qllm_result=formatted_qllm_result)
     
     #TODO: Frontend Team: Comment this
