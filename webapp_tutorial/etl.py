@@ -1,6 +1,6 @@
 from webapp.scrapper import Scrapper
 from webapp.app import create_app
-# from webapp.db import get_db #TODO: Backend team uncomment this line!
+from webapp.db import get_db #TODO: Backend team uncomment this line!
 
 app = create_app()
 
@@ -14,20 +14,20 @@ def run_etl():
     print(data)
 
     # TODO: Backend Team uncomment these lines
-    # #Transform
-    # temps = data["temperature"]
-    # dates = data["time"]
+    #Transform
+    temps = data["temperature"]
+    dates = data["time"]
 
-    # #load
-    # with app.app_context():
-    #     db = get_db()
-    #     for temp, date in zip(temps, dates):
-    #         db.execute(
-    #             'INSERT INTO temperature (lat, lon, temperature, time)'
-    #             ' VALUES (?, ?, ?, ?)',
-    #             (lat, lon, temp, date)
-    #         )
-    #     db.commit()
-    # return 
+    #load
+    with app.app_context():
+        db = get_db()
+        for temp, date in zip(temps, dates):
+            db.execute(
+                'INSERT INTO temperature (lat, lon, temperature, time)'
+                ' VALUES (?, ?, ?, ?)',
+                (lat, lon, temp, date)
+            )
+        db.commit()
+    return 
     return 
 run_etl()
